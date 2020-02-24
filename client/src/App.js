@@ -1,7 +1,6 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import axios from 'axios'
 
 export class App extends Component {
@@ -65,7 +64,7 @@ export class App extends Component {
 
   handleClick = () => {
     const pingInterval = 1000
-    const continuousPing = setInterval(this.handleFetch, 1000)
+    const continuousPing = setInterval(this.handleFetch, pingInterval)
 
     this.state.fetchClicked
       ? this.setState({ fetchClicked: false }, () =>
@@ -147,6 +146,7 @@ export class App extends Component {
                   <td>
                     <img
                       src={`https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}.jpg`}
+                      alt="random"
                     />
                   </td>
                   <td className="w-50">
